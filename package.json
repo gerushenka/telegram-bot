@@ -1,0 +1,24 @@
+{
+  "name": "telegram-bot",
+  "version": "0.0.0",
+  "description": "Бот для взаимодействия с конечным пользователем. Позволяет оформит подписку на постоянный доступ к аккаунтам с продуктами Adobe (открыть сессию на время действия подписки).",
+  "main": "./src/index.ts",
+  "scripts": {
+    "preinstall": "only-allow pnpm",
+    "dev": "nodemon ./src/index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/express": "^5.0.0",
+    "nodemon": "^3.1.7",
+    "only-allow": "^1.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "prisma": "^5.21.1",
+    "telegraf": "^4.16.3"
+  }
+}
