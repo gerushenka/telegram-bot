@@ -1,16 +1,21 @@
-FROM node:23-alpine AS builder
+FROM node:20-alpine AS base
 RUN npm install --global pnpm
 WORKDIR /app
+EXPOSE 8080
+
+FROM base AS develop
+CMD pnpm dev
+
+FROM base AS builder
+COPY node_modules/ ./
 COPY package.json pnpm-lock.yaml tsconfig.json ./
-RUN pnpm install --frozen-lockfile
-COPY src ./src
+COPY prisma/ ./
+COPY src/ ./
 RUN pnpm build
 
-FROM node:23-alpine
-RUN npm install --global pnpm
-WORKDIR /app
-COPY package.json pnpm-lock.yaml ./
-RUN pnpm install --prod --frozen-lockfile
-COPY --from=builder /app/dist ./dist
-EXPOSE 8080
-CMD pnpm start
+FROM base AS production
+COPY package.json pnpm-lock.yaml tsconfig.json ./
+COPY prisma/ ./
+COPY --from=builder /app/dist ./
+RUN pnpm install --production
+CMD pnpm prisma:deploy && pnpm start

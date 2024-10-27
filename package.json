@@ -4,10 +4,13 @@
   "description": "Бот для взаимодействия с конечным пользователем. Позволяет оформит подписку на постоянный доступ к аккаунтам с продуктами Adobe (открыть сессию на время действия подписки).",
   "main": "./src/index.ts",
   "scripts": {
-    "preinstall": "only-allow pnpm",
+    "preinstall": "only-allow pnpm && cp .env.template .env && prisma generate",
+    "prisma:migrate:new": "prisma migrate dev --create-only",
+    "prisma:migrate:apply": "prisma migrate dev",
+    "prisma:deploy": "prisma migrate deploy",
     "dev": "nodemon -r dotenv/config ./src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "build": "tsc"
   },
   "devDependencies": {
     "@tsconfig/strictest": "^2.0.5",
@@ -18,6 +21,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@prisma/client": "^5.21.1",
     "express": "^4.21.1",
     "only-allow": "^1.2.1",
     "prisma": "^5.21.1",
