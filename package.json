@@ -4,7 +4,8 @@
   "description": "Бот для взаимодействия с конечным пользователем. Позволяет оформит подписку на постоянный доступ к аккаунтам с продуктами Adobe (открыть сессию на время действия подписки).",
   "main": "./src/index.ts",
   "scripts": {
-    "preinstall": "only-allow pnpm && cp .env.template .env && prisma generate",
+    "preinstall": "only-allow pnpm && cp .env.template .env",
+    "postinstall": "pnpm dev:up && pnpm prisma:migrate:apply; pnpm dev:down",
     "prisma:migrate:new": "prisma migrate dev --create-only",
     "prisma:migrate:apply": "prisma migrate dev",
     "prisma:deploy": "prisma migrate deploy",
