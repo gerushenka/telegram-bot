@@ -1,6 +1,6 @@
 import ImageMessage from "./ImageMessage";
 import File from "../file/File";
-import {FakeChat} from "../chat/Chat";
+import { FakeChat } from "../chat/Chat";
 
 describe("ImageMessage", () => {
   it("has to send the image through", async () => {
@@ -10,6 +10,6 @@ describe("ImageMessage", () => {
 
     await imageMessage.sendTo(fakeChat);
 
-    expect(fakeChat.chatContent).toContain("Image: [file: [object Object]]");
+    expect(await fakeChat.chatContent).toContain("Image: [file: [object Object]]");
   });
 });

@@ -2,7 +2,7 @@ import ChainedMessage from "./ChainedMessage";
 import TextMessage from "./TextMessage";
 import FileMessage from "./FileMessage";
 import File from "../file/File";
-import {FakeChat} from "../chat/Chat";
+import { FakeChat } from "../chat/Chat";
 
 describe("ChainedMessage", () => {
   it("must send multiple messages in sequence", async () => {
@@ -15,6 +15,6 @@ describe("ChainedMessage", () => {
 
     await chainedMessage.sendTo(fakeChat);
 
-    expect(fakeChat.chatContent).toMatch(/Text: First message\s+File: \[file: \[object Object\]\]/);
+    expect(await fakeChat.chatContent).toMatch(/Text: First message\s+File: \[file: \[object Object\]\]/);
   });
 });
