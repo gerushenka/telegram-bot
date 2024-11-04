@@ -1,13 +1,11 @@
 import Price from "./Price";
 
 export class PriceWithDiscount implements Price {
-  private readonly origin: Price;
-  private readonly discountRate: number;
 
-  constructor(origin: Price, discountRate: number = 0) {
-    this.origin = origin;
-    this.discountRate = discountRate;
-  }
+  constructor(
+    private readonly origin: Price,
+    private readonly discountRate: number = 0
+  ) {}
 
   async amount(): Promise<number> {
     if (this.discountRate < 0 || this.discountRate > 100) {

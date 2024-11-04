@@ -14,13 +14,13 @@ describe('PriceWithDiscount', () => {
      expect(await new PriceWithDiscount(new NumberPrice(100), 100).amount()).toBe(0);
   });
 
-  it('should throw an error if the discount is less than 0%',async () => {
+  it('must throw an error if the discount is less than 0%',async () => {
     await expect( new PriceWithDiscount(new NumberPrice(100), -10).amount()).rejects.toThrow(
       "Discount rate must be between 0 and 100."
     );
   });
 
-  it('should throw an error if the discount is greater than 100%', async () => {
+  it('must throw an error if the discount is greater than 100%', async () => {
     await expect( new PriceWithDiscount(new NumberPrice(100), 110).amount()).rejects.toThrow(
       "Discount rate must be between 0 and 100."
     );
