@@ -1,9 +1,9 @@
-import FakeChat from "../chat/FakeChat";
 import ImageMessage from "./ImageMessage";
 import File from "../file/File";
+import {FakeChat} from "../chat/Chat";
 
 describe("ImageMessage", () => {
-  it("должен отправить изображение через FakeChat", async () => {
+  it("has to send the image through", async () => {
     const fakeChat = new FakeChat();
     const mockImage = {} as File;
     const imageMessage = new ImageMessage(mockImage);

@@ -1,9 +1,9 @@
-import FakeChat from "../chat/FakeChat";
 import FileMessage from "./FileMessage";
 import File from "../file/File";
+import {FakeChat} from "../chat/Chat";
 
 describe("FileMessage", () => {
-  it("должен отправить файл через FakeChat", async () => {
+  it("has to send the file through", async () => {
     const fakeChat = new FakeChat();
     const mockFile = {} as File;
     const fileMessage = new FileMessage(mockFile);

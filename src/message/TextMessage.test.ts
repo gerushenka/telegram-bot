@@ -1,8 +1,8 @@
-import FakeChat from "../chat/FakeChat";
 import TextMessage from "./TextMessage";
+import {FakeChat} from "../chat/Chat";
 
 describe("TextMessage", () => {
-  it("должен отправить текстовое сообщение через FakeChat", async () => {
+  it("must send a text message", async () => {
     const fakeChat = new FakeChat();
     const textMessage = new TextMessage("Hello, world!");
 

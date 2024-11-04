@@ -3,11 +3,10 @@ import Message from "./Message";
 import File from "../file/File";
 
 export default class ImageMessage implements Message {
-  private image: File;
 
-  constructor(image: File) {
-    this.image = image;
-  }
+  constructor(
+    private readonly image: File
+) {}
 
   async sendTo(context: Chat): Promise<void> {
     await context.sendImage(this.image);
