@@ -1,21 +1,15 @@
-import Chat from "../chat/Chat";
+import FakeChat from "../chat/FakeChat";
 import FileMessage from "./FileMessage";
 import File from "../file/File";
 
 describe("FileMessage", () => {
-  it("должен отправить файл через Chat", async () => {
-    const mockChat: Chat = {
-      sendText: jest.fn(),
-      sendImage: jest.fn(),
-      sendFile: jest.fn()
-    };
-
+  it("должен отправить файл через FakeChat", async () => {
+    const fakeChat = new FakeChat();
     const mockFile = {} as File;
     const fileMessage = new FileMessage(mockFile);
 
-    await fileMessage.sendTo(mockChat);
+    await fileMessage.sendTo(fakeChat);
 
-    expect(mockChat.sendFile).toHaveBeenCalledWith(mockFile);
-    expect(mockChat.sendFile).toHaveBeenCalledTimes(1);
+    expect(fakeChat.chatContent).toContain("File: [file: [object Object]]");
   });
 });

@@ -1,19 +1,13 @@
-import Chat from "../chat/Chat";
+import FakeChat from "../chat/FakeChat";
 import TextMessage from "./TextMessage";
 
 describe("TextMessage", () => {
-  it("должен отправить текстовое сообщение через Chat", async () => {
-    const mockChat: Chat = {
-      sendText: jest.fn(),
-      sendImage: jest.fn(),
-      sendFile: jest.fn()
-    };
-
+  it("должен отправить текстовое сообщение через FakeChat", async () => {
+    const fakeChat = new FakeChat();
     const textMessage = new TextMessage("Hello, world!");
 
-    await textMessage.sendTo(mockChat);
+    await textMessage.sendTo(fakeChat);
 
-    expect(mockChat.sendText).toHaveBeenCalledWith("Hello, world!");
-    expect(mockChat.sendText).toHaveBeenCalledTimes(1);
+    expect(fakeChat.chatContent).toContain("Text: Hello, world!");
   });
 });
