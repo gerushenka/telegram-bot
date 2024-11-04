@@ -1,20 +1,18 @@
 import Price from "./Price";
 
 export class PriceWithDiscount implements Price {
-  private readonly basePrice: Price;
+  private readonly origin: Price;
   private readonly discountRate: number;
 
-  constructor(basePrice: Price, discountRate: number = 0) {
-    if (discountRate < 0 || discountRate > 100) {
-      throw new Error("Discount rate must be between 0 and 100.");
-    }
-    this.basePrice = basePrice;
+  constructor(origin: Price, discountRate: number = 0) {
+    this.origin = origin;
     this.discountRate = discountRate;
   }
 
   async amount(): Promise<number> {
-
-    const originalAmount = await this.basePrice.amount();
-    return originalAmount * (1 - this.discountRate / 100);
+    if (this.discountRate < 0 || this.discountRate > 100) {
+      throw new Error("Discount rate must be between 0 and 100.");
+    }
+    return await this.origin.amount() * (1 - this.discountRate / 100);
   }
 }

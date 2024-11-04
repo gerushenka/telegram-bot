@@ -1,11 +1,10 @@
 import Price from "./Price";
 
 export class NumberPrice implements Price {
-  private readonly price: number;
 
-  constructor(price: number) {
-    this.price = price;
-  }
+  constructor(
+    private readonly price: number
+  ) {}
 
   async amount(): Promise<number> {
     return this.price;
