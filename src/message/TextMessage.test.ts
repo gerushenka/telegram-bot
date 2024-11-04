@@ -1,3 +1,4 @@
+
 import TextMessage from "./TextMessage";
 import { FakeChat } from "../chat/Chat";
 
@@ -8,6 +9,6 @@ describe("TextMessage", () => {
 
     await textMessage.sendTo(fakeChat);
 
-    expect(await fakeChat.chatContent).toContain("Text: Hello, world!");
+    await expect(fakeChat.chatContent).resolves.toContain("Text: Hello, world!");
   });
 });

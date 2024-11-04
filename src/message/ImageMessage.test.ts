@@ -10,6 +10,6 @@ describe("ImageMessage", () => {
 
     await imageMessage.sendTo(fakeChat);
 
-    expect(await fakeChat.chatContent).toContain("Image: [file: [object Object]]");
+    await expect(fakeChat.chatContent).resolves.toContain("Image: [file: [object Object]]");
   });
 });

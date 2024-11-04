@@ -15,6 +15,6 @@ describe("ChainedMessage", () => {
 
     await chainedMessage.sendTo(fakeChat);
 
-    expect(await fakeChat.chatContent).toMatch(/Text: First message\s+File: \[file: \[object Object\]\]/);
+    await expect(fakeChat.chatContent).resolves.toMatch(/Text: First message\s+File: \[file: \[object Object\]\]/);
   });
 });

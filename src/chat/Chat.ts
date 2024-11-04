@@ -14,10 +14,10 @@ export class FakeChat implements Chat {
   }
 
   async sendImage(image: File): Promise<void> {
-    this.chatContent += `\n\nImage: [file: ${image.toString()}]`;
+    this.chatContent += `\n\nImage: [file: ${(await image.url()).toString()}]`;
   }
 
   async sendFile(file: File): Promise<void> {
-    this.chatContent += `\n\nFile: [file: ${file.toString()}]`;
+    this.chatContent += `\n\nFile: [file: ${(await file.url()).toString()}]`;
   }
 }
