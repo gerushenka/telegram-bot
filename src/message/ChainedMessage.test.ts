@@ -1,20 +1,21 @@
 import ChainedMessage from "./ChainedMessage";
 import TextMessage from "./TextMessage";
 import FileMessage from "./FileMessage";
-import File from "../file/File";
 import { FakeChat } from "../chat/Chat";
+import {FakeFile} from "../file/File";
 
 describe("ChainedMessage", () => {
   it("must send multiple messages in sequence", async () => {
     const fakeChat = new FakeChat();
 
     const textMessage = new TextMessage("First message");
-    const mockFile = {} as File;
-    const fileMessage = new FileMessage(mockFile);
+    const fakeFile = new FakeFile("http://example.com/file");
+    const fileMessage = new FileMessage(fakeFile);
     const chainedMessage = new ChainedMessage([textMessage, fileMessage]);
 
     await chainedMessage.sendTo(fakeChat);
 
-    await expect(fakeChat.chatContent).resolves.toMatch(/Text: First message\s+File: \[file: \[object Object\]\]/);
+    expect(fakeChat.chatContent).toContain("Text: First message");
+    expect(fakeChat.chatContent).toContain("File: [file: http://example.com/file]");
   });
 });

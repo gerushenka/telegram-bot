@@ -9,6 +9,6 @@ describe("TextMessage", () => {
 
     await textMessage.sendTo(fakeChat);
 
-    await expect(fakeChat.chatContent).resolves.toContain("Text: Hello, world!");
+    expect(fakeChat.chatContent).toContain("Text: Hello, world!");
   });
 });
