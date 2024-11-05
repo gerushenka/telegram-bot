@@ -1,5 +1,5 @@
-import TextMessage from "./TextMessage";
-import { FakeChat } from "../chat/Chat";
+import TextMessage from "./TextMessage"
+import { FakeChat } from "../chat/Chat"
 
 describe("TextMessage", () => {
   it("must send a text message", async () => {

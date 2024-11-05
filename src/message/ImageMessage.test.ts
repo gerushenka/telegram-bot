@@ -1,6 +1,6 @@
-import ImageMessage from "./ImageMessage";
-import {FakeFile} from "../file/File";
-import { FakeChat } from "../chat/Chat";
+import ImageMessage from "./ImageMessage"
+import {FakeFile} from "../file/File"
+import { FakeChat } from "../chat/Chat"
 
 describe("ImageMessage", () => {
   it("has to send the image through", async () => {

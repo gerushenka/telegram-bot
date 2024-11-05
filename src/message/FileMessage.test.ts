@@ -1,6 +1,6 @@
-import FileMessage from "./FileMessage";
-import {FakeFile} from "../file/File";
-import { FakeChat } from "../chat/Chat";
+import FileMessage from "./FileMessage"
+import {FakeFile} from "../file/File"
+import { FakeChat } from "../chat/Chat"
 
 describe("FileMessage", () => {
   it("has to send the file through", async () => {
