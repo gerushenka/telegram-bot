@@ -1,5 +1,5 @@
-import Chat from "../chat/Chat"
-import Message from "./Message"
+import Chat from "../chat/Chat";
+import Message from "./Message";
 
 export default class ChainedMessage implements Message {
 

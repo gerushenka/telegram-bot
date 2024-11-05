@@ -3,13 +3,13 @@ export default interface File {
 }
 
 export class FakeFile implements File {
-  private urlValue: string;
+  private urlValue: string
 
   constructor(urlValue: string) {
-    this.urlValue = urlValue;
+    this.urlValue = urlValue
   }
 
   async url(): Promise<URL> {
-    return new URL(this.urlValue);
+    return new URL(this.urlValue)
   }
 }
