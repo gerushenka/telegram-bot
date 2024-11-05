@@ -8,7 +8,7 @@ export default class ChainedMessage implements Message {
 
   async sendTo(context: Chat): Promise<void> {
     for (const message of this.messages) {
-      await message.sendTo(context);
+      await message.sendTo(context)
     }
   }
 }
