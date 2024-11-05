@@ -1,5 +1,5 @@
-import { PriceWithDiscount } from './PriceWithDiscount';
-import { NumberPrice } from './NumberPrice';
+import {PriceWithDiscount} from './PriceWithDiscount';
+import {NumberPrice} from './NumberPrice';
 
 describe('PriceWithDiscount', () => {
   it('must apply the discount correctly', () =>
@@ -12,7 +12,7 @@ describe('PriceWithDiscount', () => {
 
   it('must return a zero price at a 100% discount', () =>
     expect(new PriceWithDiscount(new NumberPrice(100), 100).amount()).resolves.toBe(0)
-)
+  )
 
   it('must throw an error if the discount is less than 0%', () =>
     expect(new PriceWithDiscount(new NumberPrice(100), -10).amount()).rejects.toThrow(

@@ -1,5 +1,4 @@
 import Price from "./Price";
-
 export class PriceWithDiscount implements Price {
 
   constructor(
