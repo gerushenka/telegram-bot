@@ -3,7 +3,6 @@ import Message from "./Message";
 import File from "../file/File";
 
 export default class ImageMessage implements Message {
-
   constructor(
     private readonly image: File
   ) {}
