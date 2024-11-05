@@ -1,6 +1,7 @@
 import Price from "./Price"
 
 export class PriceWithDiscount implements Price {
+
   constructor(
     private readonly origin: Price,
     private readonly discountRate: number = 0
