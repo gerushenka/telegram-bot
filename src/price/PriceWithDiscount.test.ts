@@ -1,5 +1,5 @@
-import { PriceWithDiscount } from './PriceWithDiscount'
-import { NumberPrice } from './NumberPrice'
+import { PriceWithDiscount } from './PriceWithDiscount';
+import { NumberPrice } from './NumberPrice';
 
 describe('PriceWithDiscount', () => {
   it('must apply the discount correctly', () =>

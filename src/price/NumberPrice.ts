@@ -1,4 +1,4 @@
-import Price from "./Price"
+import Price from "./Price";
 
 export class NumberPrice implements Price {
 

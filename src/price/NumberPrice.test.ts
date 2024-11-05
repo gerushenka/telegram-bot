@@ -1,4 +1,4 @@
-import { NumberPrice } from './NumberPrice'
+import { NumberPrice } from './NumberPrice';
 
 describe('NumberPrice', () => {
   it('must return a fixed price', () =>
